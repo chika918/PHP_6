@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use App\Http\Controllers\Admin\TweetController;
 
 /*
@@ -23,6 +24,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function() {
     Route::get('tweet/create', [TweetController::class,'add']);
     Route::post('tweet/create', [TweetController::class,'create']);
     Route::get('tweet/create', [TweetController::class,'index']);
+    Route::get('tweet/delete', [TweetController::class,'delete']);
+
  });
 
 Auth::routes();
