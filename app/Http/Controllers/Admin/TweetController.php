@@ -10,15 +10,13 @@ use App\Models\User;
 
 class TweetController extends Controller
 {
-    
-    public function add()
-    {
-          return view('admin.tweet.create');
+    public function index(){
+        $data = Tweet::all();
+        return view('admin.tweet.create', compact('data'));
     }
-
+    
     public function create(Request $request)
     {
-
         //つぶやき文字数のバリデーション
         $request->validate([  
             "body" => "required|string|max:255"  
@@ -35,11 +33,6 @@ class TweetController extends Controller
         $posts->save();
 
         return redirect('admin/tweet/create');
-    }
-
-    public function index(){
-        $data = Tweet::all();
-        return view('admin.tweet.create', compact('data'));
     }
 
     public function delete(Request $request){

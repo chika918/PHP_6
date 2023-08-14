@@ -16,14 +16,13 @@ use App\Http\Controllers\Admin\TweetController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // 追記
 Route::prefix('admin')->middleware(['auth'])->group(function() {
-    Route::get('tweet/create', [TweetController::class,'add']);
-    Route::post('tweet/create', [TweetController::class,'create']);
     Route::get('tweet/create', [TweetController::class,'index']);
+    Route::post('tweet/create', [TweetController::class,'create']);
     Route::get('tweet/delete', [TweetController::class,'delete']);
 
  });
