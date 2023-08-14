@@ -16,10 +16,6 @@ class Tweet extends Model
     protected $table = 'posts';
     protected $guarded = ['id'];
 
-    public static $rules = [
-        'body' => 'required',
-    ];
-
     //外部キー名称を指定
     public function User()
     {
