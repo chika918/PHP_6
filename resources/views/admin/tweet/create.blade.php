@@ -12,7 +12,7 @@
             <form action="{{ url('admin/tweet/create') }}" method="post" class="post">
                 @csrf
                 {{-- エラーを表示 --}}
-                @if (count($errors) > 0)
+                @if ($errors->any())
                     <ul>
                         @foreach($errors->all() as $e)
                             <li>{{ $e }}</li>

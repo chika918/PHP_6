@@ -18,7 +18,11 @@ class TweetController extends Controller
 
     public function create(Request $request)
     {
-        $this->validate($request, Tweet::$rules);
+
+        //つぶやき文字数のバリデーション
+        $request->validate([  
+            "body" => "required|string|max:255"  
+        ]);  
 
         $posts = new Tweet;
         //ログインしているユーザーのidを取得
